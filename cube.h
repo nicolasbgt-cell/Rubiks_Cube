@@ -6,7 +6,7 @@
 /*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 08:44:27 by nbigot            #+#    #+#             */
-/*   Updated: 2026/06/24 08:44:30 by nbigot           ###   ########.fr       */
+/*   Updated: 2026/06/24 08:47:56 by nbigot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct	s_cube
 {
 	int face[6][3][3];
 }				t_cube;
+
+t_cube	cube_init(void);
 
 #endif
