@@ -26,4 +26,6 @@ typedef struct	s_cube
 }				t_cube;
 
 t_cube	cube_init(void);
+void	ft_display(void);
+
 #endif
