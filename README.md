@@ -1,6 +1,8 @@
 # Rubik's Cube Solver / Solveur de Rubik's Cube
 
 ---
+### Preview
+![Cube display](assets/display.png)
 
 ## 🇬🇧 English
 
@@ -48,6 +50,9 @@ Nicolas Bigot — École 42 Paris
 ---
 
 ## 🇫🇷 Français
+
+### Preview
+![Cube display](assets/display.png)
 
 ### Description
 Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche dans le terminal et anime la résolution étape par étape.
