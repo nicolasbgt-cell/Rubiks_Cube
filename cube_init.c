@@ -6,7 +6,7 @@
 /*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 08:44:06 by nbigot            #+#    #+#             */
-/*   Updated: 2026/06/24 08:44:16 by nbigot           ###   ########.fr       */
+/*   Updated: 2026/06/24 11:28:49 by nbigot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ t_cube	cube_init(void)
 		}
 		face++;
 	}
-	return (cube);
+	return (cube)
 }
