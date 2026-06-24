@@ -1,52 +1,48 @@
-# LED Rubik's Cube / Cube Rubik's LED
+# Rubik's Cube Solver / Solveur de Rubik's Cube
 
 ---
 
 ## 🇬🇧 English
 
 ### Description
-An autonomous decorative LED Rubik's cube powered by a Raspberry Pi Pico. The cube generates a random scramble, animates the solution step-by-step in a loop, and restarts — functioning as a fully autonomous decorative object.
+A Rubik's cube solver written in C. The program shuffles a cube, displays it in the terminal, and animates the solution step-by-step.
 
 ### Features
-- Random scramble generation
-- Layer-by-layer solver animation
-- WS2812B addressable RGB LEDs (1 per cubie, 27 total)
-- Infinite loop — plug and play
-- ON/OFF button
-- Powered by a 5V powerbank
-
-### Hardware
-- Raspberry Pi Pico
-- 27x WS2812B addressable LEDs
-- 5V powerbank
-- 7mm ON/OFF button
-- 3D printed enclosure (black PLA/PETG)
-- Plexiglass diffusers (laser cut)
+- Cube initialization and display in terminal
+- Random shuffle
+- Layer-by-layer solver
+- Step-by-step animation with 3 second delay between each move
 
 ### Requirements
-- MicroPython
-- neopixel library (built-in with MicroPython)
+- GCC
+- Make
 
 ### Installation
 ```bash
-git clone https://github.com/nicolasbgt-cell/LED_Rubiks_Cube.git
+git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
+cd Rubiks_Cube
+make
+./rubiks
 ```
-Upload `main.py` to the Pico using Thonny or rshell.
 
 ### Project Structure
 ```
-LED_Rubiks_Cube/
-├── main.py         # Main code (MicroPython)
-├── solver.py       # Layer-by-layer solver
-├── shuffle.py      # Random scramble generator
-└── README.md       # Documentation
+Rubiks_Cube/
+├── cube.h          # Defines, colors, t_cube struct
+├── cube_init.c     # Cube initialization
+├── display.c       # Terminal display
+├── move.c          # Face rotations
+├── shuffle.c       # Random scramble
+├── solver.c        # Layer-by-layer solver
+├── main.c          # Entry point
+├── Makefile
+└── README.md
 ```
 
 ### Author
 Nicolas Bigot — École 42 Paris
 
 ### ☕ Support
-If you like this project, feel free to buy me a coffee!
 👉 https://ko-fi.com/nicolasbgt
 
 ---
@@ -54,48 +50,44 @@ If you like this project, feel free to buy me a coffee!
 ## 🇫🇷 Français
 
 ### Description
-Un cube Rubik's LED décoratif et autonome alimenté par un Raspberry Pi Pico. Le cube génère un mélange aléatoire, anime la résolution étape par étape en boucle, et recommence — fonctionnant comme un objet décoratif entièrement autonome.
+Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche dans le terminal et anime la résolution étape par étape.
 
 ### Fonctionnalités
-- Génération de mélange aléatoire
-- Animation de résolution couche par couche
-- LEDs RGB adressables WS2812B (1 par cubie, 27 au total)
-- Boucle infinie — plug and play
-- Bouton ON/OFF
-- Alimenté par une powerbank 5V
-
-### Matériel
-- Raspberry Pi Pico
-- 27x LEDs adressables WS2812B
-- Powerbank 5V
-- Bouton ON/OFF 7mm
-- Boîtier imprimé en 3D (PLA/PETG noir)
-- Diffuseurs en plexiglas (découpe laser)
+- Initialisation et affichage du cube dans le terminal
+- Mélange aléatoire
+- Résolution couche par couche
+- Animation étape par étape avec 3 secondes entre chaque mouvement
 
 ### Prérequis
-- MicroPython
-- Bibliothèque neopixel (intégrée à MicroPython)
+- GCC
+- Make
 
 ### Installation
 ```bash
-git clone https://github.com/nicolasbgt-cell/LED_Rubiks_Cube.git
+git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
+cd Rubiks_Cube
+make
+./rubiks
 ```
-Upload `main.py` sur le Pico via Thonny ou rshell.
 
 ### Structure du projet
 ```
-LED_Rubiks_Cube/
-├── main.py         # Code principal (MicroPython)
-├── solver.py       # Solveur couche par couche
-├── shuffle.py      # Générateur de mélange aléatoire
-└── README.md       # Documentation
+Rubiks_Cube/
+├── cube.h          # Defines, couleurs, struct t_cube
+├── cube_init.c     # Initialisation du cube
+├── display.c       # Affichage terminal
+├── move.c          # Rotations des faces
+├── shuffle.c       # Mélange aléatoire
+├── solver.c        # Solveur couche par couche
+├── main.c          # Point d'entrée
+├── Makefile
+└── README.md
 ```
 
 ### Auteur
 Nicolas Bigot — École 42 Paris
 
 ### ☕ Soutenir le projet
-Si ce projet vous plaît, vous pouvez m'offrir un café !
 👉 https://ko-fi.com/nicolasbgt
 
 ---
