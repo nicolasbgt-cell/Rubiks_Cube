@@ -144,6 +144,8 @@ void    ft_move_d_prime(t_cube *cube)
 }
 void    ft_move_f(t_cube *cube)
 {
+	int	tmp;
+
 	rotate_face_cw(cube, FRONT);
 	tmp = cube->face[UP][2][0];
 	cube->face[UP][2][0] = cube->face[RIGHT][0][0];
@@ -219,11 +221,11 @@ void    ft_move_b_prime(t_cube *cube)
 	rotate_face_ccw(cube, BACK);
 	tmp = cube->face[LEFT][2][0];
 	cube->face[LEFT][2][0] = cube->face[DOWN][2][2];
-	cube->face[DOWN][2][2] = cube->face[RIGH][0][2];
+	cube->face[DOWN][2][2] = cube->face[RIGHT][0][2];
 	cube->face[RIGHT][0][2] = cube->face[UP][0][0];
 	cube->face[UP][0][0] = tmp;
 
-	tmp = cube->face[LEFT][1][0]:
+	tmp = cube->face[LEFT][1][0];
 	cube->face[LEFT][1][0] = cube->face[DOWN][2][1];
 	cube->face[DOWN][2][1] = cube->face[RIGHT][1][2];
 	cube->face[RIGHT][1][2] = cube->face[UP][0][1];
@@ -260,5 +262,72 @@ void    ft_move_l(t_cube *cube)
 	cube->face[BACK][0][2] = tmp;
 }
 void    ft_move_l_prime(t_cube *cube)
+{
+	int	tmp;
+
+	rotate_face_ccw(cube, LEFT);
+	tmp = cube->face[BACK][2][2];
+	cube->face[BACK][2][2] = cube->face[DOWN][0][0];
+	cube->face[DOWN][0][0] = cube->face[FRONT][0][0];
+	cube->face[FRONT][0][0] = cube->face[UP][0][0];
+	cube->face[UP][0][0] = tmp;
+
+	tmp = cube->face[BACK][1][2];
+	cube->face[BACK][1][2] = cube->face[DOWN][1][0];
+	cube->face[DOWN][1][0] = cube->face[FRONT][1][0];
+	cube->face[FRONT][1][0] = cube->face[UP][1][0];
+	cube->face[UP][1][0] = tmp;
+
+	tmp = cube->face[BACK][0][2];
+	cube->face[BACK][0][2] = cube->face[DOWN][2][0];
+	cube->face[DOWN][2][0] = cube->face[FRONT][2][0];
+	cube->face[FRONT][2][0] = cube->face[UP][2][0];
+	cube->face[UP][2][0] = tmp;
+}
+
 void    ft_move_r(t_cube *cube)
+{
+	int	tmp;
+
+	rotate_face_cw(cube, RIGHT);
+	tmp = cube->face[UP][0][2];
+	cube->face[UP][0][2] = cube->face[FRONT][0][2];
+	cube->face[FRONT][0][2] = cube->face[DOWN][0][2];
+	cube->face[DOWN][0][2] = cube->face[BACK][2][0];
+	cube->face[BACK][2][0] = tmp;
+
+	tmp = cube->face[UP][1][2];
+	cube->face[UP][1][2] = cube->face[FRONT][1][2];
+	cube->face[FRONT][1][2] = cube->face[DOWN][1][2];
+	cube->face[DOWN][1][2] = cube->face[BACK][1][0];
+	cube->face[BACK][1][0] = tmp;
+
+	tmp = cube->face[UP][2][2];
+	cube->face[UP][2][2] = cube->face[FRONT][2][2];
+	cube->face[FRONT][2][2] = cube->face[DOWN][2][2];
+	cube->face[DOWN][2][2] = cube->face[BACK][0][0];
+	cube->face[BACK][0][0] = tmp;
+}
 void    ft_move_r_prime(t_cube *cube)
+{
+	int	tmp;
+
+	rotate_face_ccw(cube, RIGHT);
+	tmp = cube->face[BACK][2][0];
+	cube->face[BACK][2][0] = cube->face[DOWN][0][2];
+	cube->face[DOWN][0][2] = cube->face[FRONT][0][2];
+	cube->face[FRONT][0][2] = cube->face[UP][0][2];
+	cube->face[UP][0][2] = tmp;
+
+	tmp = cube->face[BACK][1][0];
+	cube->face[BACK][1][0] = cube->face[DOWN][1][2];
+	cube->face[DOWN][1][2] = cube->face[FRONT][1][2];
+	cube->face[FRONT][1][2] = cube->face[UP][1][2];
+	cube->face[UP][1][2] = tmp;
+
+	tmp = cube->face[BACK][0][0];
+	cube->face[BACK][0][0] = cube->face[DOWN][2][2];
+	cube->face[DOWN][2][2] = cube->face[FRONT][2][2];
+	cube->face[FRONT][2][2] = cube->face[UP][2][2];
+	cube->face[UP][2][2] = tmp;
+}
