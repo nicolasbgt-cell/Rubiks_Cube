@@ -10,4 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cube.h"
 
+int	main(void)
+{
+	t_cube cube;
+
+	cube = cube_init();
+	ft_move_b_prime(&cube);
+	ft_display(&cube);
+	return (0);
+}
