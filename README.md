@@ -4,7 +4,7 @@
 ### Preview
 ![Cube display](assets/display.png)
 
-## 🇬🇧 English
+## English
 
 ### Description
 A Rubik's cube solver written in C. The program shuffles a cube, displays it in the terminal, and animates the solution step-by-step.
@@ -49,7 +49,7 @@ Nicolas Bigot — École 42 Paris
 
 ---
 
-## 🇫🇷 Français
+## Français
 
 ### Preview
 ![Cube display](assets/display.png)
