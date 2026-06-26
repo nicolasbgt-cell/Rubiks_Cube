@@ -2,7 +2,9 @@
 
 ---
 ### Preview
-![Cube display](assets/display.png)
+<div align="center">
+  <img src="assets/demo.gif" alt="demo">
+</div>
 
 ## English
 
@@ -52,7 +54,9 @@ Nicolas Bigot — École 42 Paris
 ## Français
 
 ### Preview
-![Cube display](assets/display.png)
+<div align="center">
+  <img src="assets/demo.gif" alt="demo">
+</div>
 
 ### Description
 Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche dans le terminal et anime la résolution étape par étape.
