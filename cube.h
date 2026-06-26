@@ -51,4 +51,5 @@ void	ft_move_l_prime(t_cube *cube);
 void	ft_move_r(t_cube *cube);
 void	ft_move_r_prime(t_cube *cube);
 
+void	ft_shuffle(t_cube *cube);
 #endif
