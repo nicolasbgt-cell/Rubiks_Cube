@@ -6,7 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = main.c\
 	cube_init.c\
 	display.c\
-	move.c
+	move.c\
+	shuffle.c
 
 OBJS = $(SRC:.c=.o)
 
