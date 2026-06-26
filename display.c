@@ -21,7 +21,7 @@ void	ft_print_cell(char *letter, char *color)
 	write(1, "\033[0m", 4);
 }
 
-void	ft_display(void)
+void	ft_display(t_cube *cube)
 {
 	int	row;
 	int	col;
@@ -54,10 +54,4 @@ void	ft_display(void)
 		write(1, "\n", 1);
 		row++;
 	}
-}
-
-int	main(void)
-{
-	ft_display();
-	return (0);
 }
