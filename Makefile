@@ -1,15 +1,18 @@
 NAME = rubiks
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc 
+CFLAGS = -Wall -Wextra -Werror
 
-SRC = /	main.c
-	cube_init.c
-	display.c
+SRC = main.c\
+	cube_init.c\
+	display.c\
 	move.c
-	shuflle.c
-	slover.c
 
-all: $(OBJS)
+OBJS = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:

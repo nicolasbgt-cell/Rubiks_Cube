@@ -35,5 +35,5 @@ t_cube	cube_init(void)
 		}
 		face++;
 	}
-	return (cube)
+	return (cube);
 }
