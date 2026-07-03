@@ -20,5 +20,6 @@ int	main(void)
 	cube = cube_init();
 	usleep(1000000);
 	ft_shuffle(&cube);
+	ida_star(&cube);
 	return (0);
 }

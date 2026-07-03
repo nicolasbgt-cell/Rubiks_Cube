@@ -52,4 +52,10 @@ void	ft_move_r(t_cube *cube);
 void	ft_move_r_prime(t_cube *cube);
 
 void	ft_shuffle(t_cube *cube);
+
+int	ft_white_cross(t_cube *cube);
+void	ft_solve_white_cross(t_cube *cube);
+int	is_goal(t_cube *cube);
+t_cube	apply_move(t_cube *cube, int move);
+
 #endif

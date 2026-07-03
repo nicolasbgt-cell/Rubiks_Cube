@@ -7,7 +7,8 @@ SRC = main.c\
 	cube_init.c\
 	display.c\
 	move.c\
-	shuffle.c
+	shuffle.c\
+	solver.c
 
 OBJS = $(SRC:.c=.o)
 
