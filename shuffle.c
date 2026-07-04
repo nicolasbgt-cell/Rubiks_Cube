@@ -22,7 +22,7 @@ void	ft_shuffle(t_cube *cube)
 
 	srand(time(NULL));
 	i = 0;
-	while (i < 20)
+	while (i < 3)
 	{
 		move = rand() % 12;
 		if (move == 0)

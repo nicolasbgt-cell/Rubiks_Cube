@@ -8,7 +8,8 @@ SRC = main.c\
 	display.c\
 	move.c\
 	shuffle.c\
-	solver.c
+	solver.c\
+	strategy.c
 
 OBJS = $(SRC:.c=.o)
 

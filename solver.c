@@ -12,6 +12,7 @@
 
 #include "cube.h"
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_white_cross(t_cube *cube)
 {
@@ -25,8 +26,19 @@ int	ft_white_cross(t_cube *cube)
 
 void	ft_solver(t_cube *cube)
 {
+	int	count;
+
+	count = 0;
 	while (!ft_white_cross(cube))
+	{
 		ft_solve_white_cross(cube);
+		count++;
+		if (count > 1000)
+		{
+			printf("boucle infinie");
+			return ;
+		}
+	}
 }
 
 void    ft_solve_white_cross(t_cube *cube)
@@ -47,6 +59,58 @@ void    ft_solve_white_cross(t_cube *cube)
 				if (cube->face[f][i][j] == WHITE &&
 					(i + j) % 2 == 1)
 				{
+					if (f == FRONT)
+					{
+						ft_align_front(cube);
+						return ;
+					}
+					else if (f == RIGHT)
+					{
+						ft_align_right(cube);
+						return ;
+					}
+					else if (f == LEFT)
+					{
+						ft_align_left(cube);
+						return ;
+					}
+					else if (f == BACK)
+					{
+						ft_align_back(cube);
+						return ;
+					}
+					else if (f == DOWN)
+					{
+						ft_align_down(cube);
+						return ;
+					}
+					else if (f == UP)
+					{
+						if (i == 0 && j == 1 && cube->face[FRONT][0][1] != RED)
+						{
+							ft_move_f(cube);
+							ft_move_f(cube);
+							return ;
+						}
+						else if (i == 1 && j == 2 && cube->face[RIGHT][0][1] != GREEN)
+						{
+							ft_move_r(cube);
+							ft_move_r(cube);
+							return ;
+						}
+						else if (i == 2 && j == 1 && cube->face[BACK][0][1] != ORANGE)
+						{
+							ft_move_b(cube);
+							ft_move_b(cube);
+							return ;
+						}
+						else if (i == 1 && j == 0 && cube->face[LEFT][0][1] != BLUE)
+						{
+							ft_move_l(cube);
+							ft_move_l(cube);
+							return ;
+						}
+					}
 				}
 				j++;
 			}
