@@ -59,7 +59,6 @@ void	ft_solve_white_cross(t_cube *cube);
 int	is_goal(t_cube *cube);
 t_cube	apply_move(t_cube *cube, int move);
 
-void	ft_edge_down(t_cube *cube);
 void	ft_align_down(t_cube *cube);
 void	ft_align_front(t_cube *cube);
 void	ft_align_right(t_cube *cube);
