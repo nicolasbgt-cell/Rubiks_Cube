@@ -39,7 +39,7 @@ void	ft_to_down(t_cube *cube)
 		ft_move_f(cube);
 		ft_move_f(cube);
 	}
-	if (cube->face[UP][1][2] == WHITE && cube–>face[RIGHT][0][1] != GREEN)
+	if (cube->face[UP][1][2] == WHITE && cube->face[RIGHT][0][1] != GREEN)
 	{
 		ft_move_r(cube);
 		ft_move_r(cube);
@@ -60,29 +60,45 @@ void	ft_align_down(t_cube *cube)
 {
 	if (cube->face[DOWN][0][1] == WHITE)
 	{
-		while (cube->face[FRONT][2][1] != RED)
+		int safe = 0;
+		while (cube->face[FRONT][2][1] != RED && safe < 4)
+		{
 			ft_move_d(cube);
+			safe++;
+		}
 		ft_move_f(cube);
 		ft_move_f(cube);
 	}
 	if (cube->face[DOWN][1][2] == WHITE)
 	{
-		while (cube->face[RIGHT][2][1] != GREEN)
+		int	safe = 0;
+		while (cube->face[RIGHT][2][1] != GREEN && safe < 4)
+		{
 			ft_move_d(cube);
+			safe++;
+		}
 		ft_move_r(cube);
 		ft_move_r(cube);
 	}
 	if (cube->face[DOWN][2][1] == WHITE)
 	{
-		while (cube->face[BACK][2][1] != ORANGE)
+		int safe = 0;
+		while (cube->face[BACK][2][1] != ORANGE && safe < 4)
+		{
 			ft_move_d(cube);
+			safe++;
+		}
 		ft_move_f(cube);
 		ft_move_f(cube);
 	}
 	if (cube->face[DOWN][1][0] == WHITE)
 	{
-		while (cube->face[LEFT][2][1] != BLUE)
+		int	safe = 0;
+		while (cube->face[LEFT][2][1] != BLUE && safe < 4)
+		{
 			ft_move_d(cube);
+			safe++;
+		}
 		ft_move_l(cube);
 		ft_move_l(cube);
 	}
