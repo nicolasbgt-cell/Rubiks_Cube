@@ -87,3 +87,9 @@ void	ft_align_down(t_cube *cube)
 		ft_move_l(cube);
 	}
 }
+
+void	ft_solve_white_cross(t_cube *cube)
+{
+	ft_to_down(cube);
+	ft_align_down(cube);
+}

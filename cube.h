@@ -55,9 +55,10 @@ void	ft_shuffle(t_cube *cube);
 
 int	ft_white_cross(t_cube *cube);
 void	ft_solver(t_cube *cube);
+
 void	ft_solve_white_cross(t_cube *cube);
-int	is_goal(t_cube *cube);
-t_cube	apply_move(t_cube *cube, int move);
+void	ft_align_down(t_cube *cube);
+void	ft_to_down(t_cube *cube);
 
 void	ft_align_down(t_cube *cube);
 void	ft_align_front(t_cube *cube);
