@@ -66,8 +66,12 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		ft_move_f(cube);
-		ft_move_f(cube);
+		if (safe < 4 && 
+			!(cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] == RED))
+		{
+			ft_move_f(cube);
+			ft_move_f(cube);
+		}
 	}
 	if (cube->face[DOWN][1][2] == WHITE)
 	{
@@ -77,8 +81,12 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		ft_move_r(cube);
-		ft_move_r(cube);
+		if (safe < 4 && 
+			!(cube->face[UP][1][2] == WHITE && cube->face[RIGHT][0][1] == GREEN))
+		{
+			ft_move_r(cube);
+			ft_move_r(cube);
+		}
 	}
 	if (cube->face[DOWN][2][1] == WHITE)
 	{
@@ -88,8 +96,12 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		ft_move_f(cube);
-		ft_move_f(cube);
+		if (safe < 4 && 
+			!(cube->face[UP][2][1] == WHITE && cube->face[BACK][0][1] == ORANGE))
+		{
+			ft_move_b(cube);
+			ft_move_b(cube);
+		}
 	}
 	if (cube->face[DOWN][1][0] == WHITE)
 	{
@@ -99,13 +111,19 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		ft_move_l(cube);
-		ft_move_l(cube);
+		if (safe < 4 && 
+			!(cube->face[UP][1][0] == WHITE && cube->face[LEFT][0][1] == BLUE))
+		{
+			ft_move_l(cube);
+			ft_move_l(cube);
+		}
 	}
 }
 
 void	ft_solve_white_cross(t_cube *cube)
 {
+	ft_to_down(cube);
+	ft_to_down(cube);
 	ft_to_down(cube);
 	ft_align_down(cube);
 }
