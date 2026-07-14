@@ -21,7 +21,7 @@ void	ft_solver(t_cube *cube)
 	{
 		ft_solve_white_cross(cube);
 		count++;
-		if (count > 1000)
+		if (count > 5000)
 		{
 			printf("boucle infinie\n");
 			return ;
