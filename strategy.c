@@ -6,7 +6,7 @@
 /*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 11:14:32 by nbigot            #+#    #+#             */
-/*   Updated: 2026/07/26 11:14:53 by nbigot           ###   ########.fr       */
+/*   Updated: 2026/07/26 11:49:29 by nbigot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void	ft_to_down(t_cube *cube)
 		ft_move_r_prime(cube);
 	else if (cube->face[BACK][1][2] == WHITE)
 		ft_move_l(cube);
+	else if (cube->face[FRONT][0][0] == WHITE)
+		ft_move_l(cube);
+	else if (cube->face[FRONT][0][2] == WHITE)
+		ft_move_r_prime(cube);
+	else if (cube->face[FRONT][2][0] == WHITE)
+		ft_move_l_prime(cube);
+	else if (cube->face[FRONT][2][2] == WHITE)
+		ft_move_r(cube);
 	else if (cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] != RED)
 	{
 		ft_move_f(cube);
