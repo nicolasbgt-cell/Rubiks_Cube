@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strategy.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/26 11:14:32 by nbigot            #+#    #+#             */
+/*   Updated: 2026/07/26 11:14:53 by nbigot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube.h"
 
 void	ft_to_down(t_cube *cube)
@@ -26,7 +38,7 @@ void	ft_to_down(t_cube *cube)
 		ft_move_r_prime(cube);
 	else if (cube->face[BACK][1][2] == WHITE)
 		ft_move_l(cube);
-	if (cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] != RED)
+	else if (cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] != RED)
 	{
 		ft_move_f(cube);
 		ft_move_f(cube);
