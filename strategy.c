@@ -46,17 +46,17 @@ void	ft_to_down(t_cube *cube)
 		ft_move_l_prime(cube);
 	else if (cube->face[FRONT][2][2] == WHITE)
 		ft_move_r(cube);
-	else if (cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] != RED)
+	else if (cube->face[UP][2][1] == WHITE && cube->face[FRONT][0][1] != RED)
 	{
 		ft_move_f(cube);
 		ft_move_f(cube);
 	}
-	else if(cube->face[UP][1][2] == WHITE && cube->face[RIGHT][0][1] != GREEN)
+	else if (cube->face[UP][1][2] == WHITE && cube->face[RIGHT][0][1] != GREEN)
 	{
 		ft_move_r(cube);
 		ft_move_r(cube);
 	}
-	else if (cube->face[UP][2][1] == WHITE && cube->face[BACK][0][1] != ORANGE)
+	else if (cube->face[UP][0][1] == WHITE && cube->face[BACK][0][1] != ORANGE)
 	{
 		ft_move_b(cube);
 		ft_move_b(cube);
@@ -78,7 +78,7 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		if (!(cube->face[UP][0][1] == WHITE && cube->face[FRONT][0][1] == RED))
+		if (!(cube->face[UP][2][1] == WHITE && cube->face[FRONT][0][1] == RED))
 		{
 			ft_move_f(cube);
 			ft_move_f(cube);
@@ -108,7 +108,7 @@ void	ft_align_down(t_cube *cube)
 			ft_move_d(cube);
 			safe++;
 		}
-		if (!(cube->face[UP][2][1] == WHITE && cube->face[BACK][0][1] == ORANGE))
+		if (!(cube->face[UP][0][1] == WHITE && cube->face[BACK][0][1] == ORANGE))
 		{
 			ft_move_b(cube);
 			ft_move_b(cube);
@@ -136,5 +136,4 @@ void	ft_solve_white_cross(t_cube *cube)
 {
 	ft_to_down(cube);
 	ft_align_down(cube);
-	ft_move_u(cube);
 }
