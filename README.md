@@ -32,12 +32,14 @@ make
 ### Project Structure
 ```
 Rubiks_Cube/
+├── assets/         # Demo GIF and other media
 ├── cube.h          # Defines, colors, t_cube struct
 ├── cube_init.c     # Cube initialization
 ├── display.c       # Terminal display
 ├── move.c          # Face rotations
 ├── shuffle.c       # Random scramble
-├── solver.c        # Layer-by-layer solver
+├── strategy.c       # Layer-by-layer resolution strategy (white cross, etc.)
+├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
 └── README.md
@@ -82,12 +84,14 @@ make
 ### Structure du projet
 ```
 Rubiks_Cube/
+├── assets/         # GIF de démo et autres médias
 ├── cube.h          # Defines, couleurs, struct t_cube
 ├── cube_init.c     # Initialisation du cube
 ├── display.c       # Affichage terminal
 ├── move.c          # Rotations des faces
 ├── shuffle.c       # Mélange aléatoire
-├── solver.c        # Solveur couche par couche
+├── strategy.c       # Stratégie de résolution couche par couche (croix blanche, etc.)
+├── solver.c        # Point d'entrée / orchestration du solveur
 ├── main.c          # Point d'entrée
 ├── Makefile
 └── README.md
