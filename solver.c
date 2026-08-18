@@ -6,7 +6,7 @@
 /*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 11:17:44 by nbigot            #+#    #+#             */
-/*   Updated: 2026/07/26 12:15:00 by nbigot           ###   ########.fr       */
+/*   Updated: 2026/08/18 13:49:18 by nbigot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,6 @@ int     ft_white_cross(t_cube *cube)
 
 void	ft_solver(t_cube *cube)
 {
-	int count;
-
-	count = 0;
 	while (!ft_white_cross(cube))
-	{
 		ft_solve_white_cross(cube);
-		count++;
-		if (count > 8000)
-		{
-			printf("boucle infinie\n");
-			return ;
-		}
-	}
-	printf("CROIX FAITE en %d iterations\n", count);
 }

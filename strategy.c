@@ -6,7 +6,7 @@
 /*   By: nbigot <nbigot@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 11:14:32 by nbigot            #+#    #+#             */
-/*   Updated: 2026/08/15 00:00:00 by nbigot           ###   ########.fr       */
+/*   Updated: 2026/08/18 13:50:29 by nbigot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,6 @@ void	ft_to_down(t_cube *cube)
 	}
 }
 
-/*
-** Bug fixed: the old code rotated D looking for a specific colour at
-** FRONT[2][1], but each D rotation moves the white piece to a different
-** DOWN slot (DOWN[0][1]->DOWN[1][2]->...).  Doing F F afterwards then
-** operated on DOWN[0][1] which no longer held the white piece.
-** When the companion was not RED and UP[2][1] was correctly occupied the
-** function did 4 D rotations (returning to the original state) and then
-** bailed out without touching anything -> infinite loop (iters > 20000).
-**
-** Fix: read the companion colour once, compute the exact number of CW D
-** rotations needed to bring the piece directly under its matching face
-** centre, then do the correct face double-move.
-*/
 void	ft_align_down(t_cube *cube)
 {
 	int	companion;
