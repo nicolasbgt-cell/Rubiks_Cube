@@ -22,15 +22,15 @@ A Rubik's cube solver written in C. The program shuffles a cube, displays it in 
 - Make
 
 ### Installation
-```bash
+
 git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
 cd Rubiks_Cube
 make
 ./rubiks
-```
+
 
 ### Project Structure
-```
+
 Rubiks_Cube/
 ├── assets/         # Demo GIF and other media
 ├── cube.h          # Defines, colors, t_cube struct
@@ -43,7 +43,7 @@ Rubiks_Cube/
 ├── main.c          # Entry point
 ├── Makefile
 └── README.md
-```
+
 
 ### Author
 Nicolas Bigot — École 42 Paris
@@ -74,15 +74,15 @@ Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche
 - Make
 
 ### Installation
-```bash
+
 git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
 cd Rubiks_Cube
 make
 ./rubiks
-```
+
 
 ### Structure du projet
-```
+
 Rubiks_Cube/
 ├── assets/         # GIF de démo et autres médias
 ├── cube.h          # Defines, couleurs, struct t_cube
@@ -95,7 +95,7 @@ Rubiks_Cube/
 ├── main.c          # Point d'entrée
 ├── Makefile
 └── README.md
-```
+
 
 ### Auteur
 Nicolas Bigot — École 42 Paris
