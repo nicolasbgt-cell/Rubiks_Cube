@@ -74,12 +74,12 @@ Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche
 - Make
 
 ### Installation
-
+```
 git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
 cd Rubiks_Cube
 make
 ./rubiks
-
+```
 
 ### Structure du projet
 ```
