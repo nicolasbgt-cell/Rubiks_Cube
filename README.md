@@ -15,7 +15,7 @@ A Rubik's cube solver written in C. The program shuffles a cube, displays it in 
 - Cube initialization and display in terminal
 - Random shuffle
 - Layer-by-layer solver
-- Step-by-step animation with 3 second delay between each move
+- Step-by-step animation between each move
 
 ### Requirements
 - GCC
@@ -67,7 +67,7 @@ Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche
 - Initialisation et affichage du cube dans le terminal
 - Mélange aléatoire
 - Résolution couche par couche
-- Animation étape par étape avec 3 secondes entre chaque mouvement
+- Animation étape par étape
 
 ### Prérequis
 - GCC
