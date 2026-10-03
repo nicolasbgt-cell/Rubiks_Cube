@@ -1,22 +1,26 @@
 #include "cube.h"
 
 /*
-** corner 1 : blanc-rouge-vert (cible UFR)
-** corner 2 : blanc-rouge-bleu (cible UFL)
+** corner 1 : blanc-rouge-vert  (cible UFR)
+** corner 2 : blanc-rouge-bleu  (cible UFL)
+** corner 3 : blanc-orange-vert (cible UBR)
 */
 int	ft_is_corner(int a, int b, int c, int corner)
 {
-	int	side;
+	int	side1;
+	int	side2;
 
-	if (corner == 1)
-		side = GREEN;
-	else
-		side = BLUE;
+	side1 = RED;
+	side2 = GREEN;
+	if (corner == 2)
+		side2 = BLUE;
+	else if (corner == 3)
+		side1 = ORANGE;
 	if (a != WHITE && b != WHITE && c != WHITE)
 		return (0);
-	if (a != RED && b != RED && c != RED)
+	if (a != side1 && b != side1 && c != side1)
 		return (0);
-	if (a != side && b != side && c != side)
+	if (a != side2 && b != side2 && c != side2)
 		return (0);
 	return (1);
 }

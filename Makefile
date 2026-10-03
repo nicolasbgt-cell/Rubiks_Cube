@@ -11,7 +11,8 @@ SRC = main.c\
 	solver.c\
 	strategy.c\
 	corner.c\
-	corner2.c
+	corner2.c\
+	corner3.c
 
 OBJS = $(SRC:.c=.o)
 

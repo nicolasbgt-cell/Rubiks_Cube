@@ -1,31 +1,36 @@
 #include "cube.h"
 
+/*
+** Les cases du milieu ([1][0], [1][2]) sont testees avant les [0][1] :
+** sinon, avec plusieurs blancs sur une meme face, la rotation de cette
+** face remettait toujours un blanc en [0][1] -> boucle infinie.
+*/
 void	ft_to_down(t_cube *cube)
 {
-	if (cube->face[FRONT][0][1] == WHITE)
-		ft_move_f(cube);
-	else if (cube->face[FRONT][1][0] == WHITE)
+	if (cube->face[FRONT][1][0] == WHITE)
 		ft_move_l(cube);
 	else if (cube->face[FRONT][1][2] == WHITE)
 		ft_move_r_prime(cube);
-	else if (cube->face[RIGHT][0][1] == WHITE)
-		ft_move_r(cube);
 	else if (cube->face[RIGHT][1][0] == WHITE)
 		ft_move_f(cube);
 	else if (cube->face[RIGHT][1][2] == WHITE)
 		ft_move_b_prime(cube);
-	else if (cube->face[LEFT][0][1] == WHITE)
-		ft_move_l_prime(cube);
 	else if (cube->face[LEFT][1][0] == WHITE)
 		ft_move_b(cube);
 	else if (cube->face[LEFT][1][2] == WHITE)
 		ft_move_f_prime(cube);
-	else if (cube->face[BACK][0][1] == WHITE)
-		ft_move_b(cube);
 	else if (cube->face[BACK][1][0] == WHITE)
 		ft_move_r(cube);
 	else if (cube->face[BACK][1][2] == WHITE)
 		ft_move_l_prime(cube);
+	else if (cube->face[FRONT][0][1] == WHITE)
+		ft_move_f(cube);
+	else if (cube->face[RIGHT][0][1] == WHITE)
+		ft_move_r(cube);
+	else if (cube->face[LEFT][0][1] == WHITE)
+		ft_move_l_prime(cube);
+	else if (cube->face[BACK][0][1] == WHITE)
+		ft_move_b(cube);
 	else if (cube->face[FRONT][2][1] == WHITE
 		&& !(cube->face[UP][2][1] == WHITE && cube->face[FRONT][0][1] == RED))
 		ft_move_f(cube);

@@ -61,5 +61,7 @@ void	ft_corner_to_down(t_cube *cube, int slot);
 void	ft_place_corner(t_cube *cube);
 int	ft_corner2_ok(t_cube *cube);
 void	ft_place_corner2(t_cube *cube);
+int	ft_corner3_ok(t_cube *cube);
+void	ft_place_corner3(t_cube *cube);
 
 #endif

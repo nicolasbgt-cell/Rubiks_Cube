@@ -18,4 +18,5 @@ void	ft_solver(t_cube *cube)
 		ft_solve_white_cross(cube);
 	ft_place_corner(cube);
 	ft_place_corner2(cube);
+	ft_place_corner3(cube);
 }
