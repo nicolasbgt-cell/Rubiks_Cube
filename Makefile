@@ -10,7 +10,8 @@ SRC = main.c\
 	shuffle.c\
 	solver.c\
 	strategy.c\
-	corner.c
+	corner.c\
+	corner2.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -54,10 +54,12 @@ void	ft_align_right(t_cube *cube);
 void	ft_align_left(t_cube *cube);
 void	ft_align_back(t_cube *cube);
 
-int	ft_is_corner(int a, int b, int c);
-int	ft_find_corner(t_cube *cube);
+int	ft_is_corner(int a, int b, int c, int corner);
+int	ft_find_corner(t_cube *cube, int corner);
 int	ft_corner_ok(t_cube *cube);
 void	ft_corner_to_down(t_cube *cube, int slot);
 void	ft_place_corner(t_cube *cube);
+int	ft_corner2_ok(t_cube *cube);
+void	ft_place_corner2(t_cube *cube);
 
 #endif

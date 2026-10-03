@@ -1,38 +1,48 @@
 #include "cube.h"
 
-int	ft_is_corner(int a, int b, int c)
+/*
+** corner 1 : blanc-rouge-vert (cible UFR)
+** corner 2 : blanc-rouge-bleu (cible UFL)
+*/
+int	ft_is_corner(int a, int b, int c, int corner)
 {
+	int	side;
+
+	if (corner == 1)
+		side = GREEN;
+	else
+		side = BLUE;
 	if (a != WHITE && b != WHITE && c != WHITE)
 		return (0);
 	if (a != RED && b != RED && c != RED)
 		return (0);
-	if (a != GREEN && b != GREEN && c != GREEN)
+	if (a != side && b != side && c != side)
 		return (0);
 	return (1);
 }
 
-int	ft_find_corner(t_cube *cube)
+int	ft_find_corner(t_cube *cube, int corner)
 {
 	if (ft_is_corner(cube->face[UP][2][2], cube->face[FRONT][0][2],
-			cube->face[RIGHT][0][0]))
+			cube->face[RIGHT][0][0], corner))
 		return (0);
 	if (ft_is_corner(cube->face[UP][2][0], cube->face[FRONT][0][0],
-			cube->face[LEFT][0][2]))
+			cube->face[LEFT][0][2], corner))
 		return (1);
 	if (ft_is_corner(cube->face[UP][0][0], cube->face[BACK][0][2],
-			cube->face[LEFT][0][0]))
+			cube->face[LEFT][0][0], corner))
 		return (2);
 	if (ft_is_corner(cube->face[UP][0][2], cube->face[BACK][0][0],
-			cube->face[RIGHT][0][2]))
+			cube->face[RIGHT][0][2], corner))
 		return (3);
 	if (ft_is_corner(cube->face[DOWN][0][2], cube->face[FRONT][2][2],
-			cube->face[RIGHT][2][0]))
+			cube->face[RIGHT][2][0], corner))
 		return (4);
 	if (ft_is_corner(cube->face[DOWN][0][0], cube->face[FRONT][2][0],
-			cube->face[LEFT][2][2]))
+			cube->face[LEFT][2][2], corner))
 		return (5);
 	if (ft_is_corner(cube->face[DOWN][2][0], cube->face[BACK][2][2],
-			cube->face[LEFT][2][0]))
+			cube->face[LEFT][2][0], corner))
 		return (6);
 	return (7);
 }
@@ -50,7 +60,13 @@ int	ft_corner_ok(t_cube *cube)
 */
 void	ft_corner_to_down(t_cube *cube, int slot)
 {
-	if (slot == 1)
+	if (slot == 0)
+	{
+		ft_move_r_prime(cube);
+		ft_move_d_prime(cube);
+		ft_move_r(cube);
+	}
+	else if (slot == 1)
 	{
 		ft_move_l(cube);
 		ft_move_d(cube);
@@ -77,11 +93,11 @@ void	ft_place_corner(t_cube *cube)
 
 	if (ft_corner_ok(cube))
 		return ;
-	slot = ft_find_corner(cube);
+	slot = ft_find_corner(cube, 1);
 	if (slot >= 1 && slot <= 3)
 	{
 		ft_corner_to_down(cube, slot);
-		slot = ft_find_corner(cube);
+		slot = ft_find_corner(cube, 1);
 	}
 	while (slot-- > 4)
 		ft_move_d(cube);
