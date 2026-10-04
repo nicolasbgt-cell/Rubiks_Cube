@@ -1,10 +1,5 @@
 #include "cube.h"
 
-/*
-** Les cases du milieu ([1][0], [1][2]) sont testees avant les [0][1] :
-** sinon, avec plusieurs blancs sur une meme face, la rotation de cette
-** face remettait toujours un blanc en [0][1] -> boucle infinie.
-*/
 void	ft_to_down(t_cube *cube)
 {
 	if (cube->face[FRONT][1][0] == WHITE)

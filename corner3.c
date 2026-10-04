@@ -8,11 +8,6 @@ int	ft_corner3_ok(t_cube *cube)
 	return (0);
 }
 
-/*
-** Meme principe que ft_place_corner, vu depuis la face RIGHT :
-** on amene le coin en DBR puis on repete B' D' B D.
-** B et D ne touchent ni la croix ni les coins 1 et 2 (UFR, UFL).
-*/
 void	ft_place_corner3(t_cube *cube)
 {
 	int	slot;

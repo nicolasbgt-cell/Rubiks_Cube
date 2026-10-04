@@ -8,11 +8,6 @@ int	ft_corner2_ok(t_cube *cube)
 	return (0);
 }
 
-/*
-** Meme principe que ft_place_corner, en miroir sur la face LEFT :
-** on amene le coin en DFL puis on repete L D L' D'.
-** L et D ne touchent ni la croix ni le premier coin (UFR).
-*/
 void	ft_place_corner2(t_cube *cube)
 {
 	int	slot;
