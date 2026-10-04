@@ -12,7 +12,8 @@ SRC = main.c\
 	strategy.c\
 	corner.c\
 	corner2.c\
-	corner3.c
+	corner3.c\
+	corner4.c
 
 OBJS = $(SRC:.c=.o)
 

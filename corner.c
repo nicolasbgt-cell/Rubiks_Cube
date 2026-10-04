@@ -4,6 +4,7 @@
 ** corner 1 : blanc-rouge-vert  (cible UFR)
 ** corner 2 : blanc-rouge-bleu  (cible UFL)
 ** corner 3 : blanc-orange-vert (cible UBR)
+** corner 4 : blanc-orange-bleu (cible UBL)
 */
 int	ft_is_corner(int a, int b, int c, int corner)
 {
@@ -16,6 +17,11 @@ int	ft_is_corner(int a, int b, int c, int corner)
 		side2 = BLUE;
 	else if (corner == 3)
 		side1 = ORANGE;
+	else if (corner == 4)
+	{
+		side1 = ORANGE;
+		side2 = BLUE;
+	}
 	if (a != WHITE && b != WHITE && c != WHITE)
 		return (0);
 	if (a != side1 && b != side1 && c != side1)

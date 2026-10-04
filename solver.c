@@ -19,4 +19,5 @@ void	ft_solver(t_cube *cube)
 	ft_place_corner(cube);
 	ft_place_corner2(cube);
 	ft_place_corner3(cube);
+	ft_place_corner4(cube);
 }
