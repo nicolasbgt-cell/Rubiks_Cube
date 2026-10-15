@@ -13,7 +13,11 @@ SRC = main.c\
 	corner.c\
 	corner2.c\
 	corner3.c\
-	corner4.c
+	corner4.c\
+	edge.c\
+	edge2.c\
+	edge3.c\
+	cross.c
 
 OBJS = $(SRC:.c=.o)
 

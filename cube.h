@@ -66,4 +66,21 @@ void	ft_place_corner3(t_cube *cube);
 int	ft_corner4_ok(t_cube *cube);
 void	ft_place_corner4(t_cube *cube);
 
+int	ft_is_edge(int a, int b, int edge);
+int	ft_find_edge(t_cube *cube, int edge);
+int	ft_edge_ok(t_cube *cube, int edge);
+int	ft_down_edge(t_cube *cube, int i);
+int	ft_ring(int i);
+void	ft_turn(t_cube *cube, int face, int prime);
+void	ft_edge_alg(t_cube *cube, char *alg, int i);
+void	ft_edge_insert(t_cube *cube, int edge);
+void	ft_edge_eject(t_cube *cube, int pos);
+void	ft_place_edge1(t_cube *cube);
+void	ft_place_edge2(t_cube *cube);
+void	ft_place_edge3(t_cube *cube);
+void	ft_place_edge4(t_cube *cube);
+
+int	ft_yellow_count(t_cube *cube);
+void	ft_yellow_cross(t_cube *cube);
+
 #endif

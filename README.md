@@ -45,6 +45,20 @@ Each corner is solved with the same 3-step method:
 
 The algorithm only touches its own slot and the bottom layer, so the cross and the corners already placed stay solved.
 
+#### 3. Middle edges (`edge.c` → `edge3.c`)
+`ft_place_edge1` → `ft_place_edge4` place the 4 middle-layer edges (red-green, red-blue, orange-green, orange-blue). An edge stuck in the wrong middle slot is first ejected to the bottom layer, then `D` is turned until it sits under its matching center and it is inserted with `D' R' D R D F D' F'` (to the right) or `D L D' L' D' F' D F` (to the left).
+
+#### 4. Yellow cross (`cross.c`)
+`ft_yellow_cross` orients the 4 DOWN edges so that `DOWN[0][1]`, `DOWN[1][0]`, `DOWN[1][2]` and `DOWN[2][1]` are yellow (their position relative to the centers is not fixed yet). It uses `F L D L' D' F'`, the yellow-down version of `F R U R' U' F'`:
+
+| Case | Setup | Result |
+|---|---|---|
+| Dot (0 yellow edge) | none | L |
+| L (2 adjacent) | `D` until yellow on `DOWN[1][2]` + `DOWN[2][1]` | line |
+| Line (2 opposite) | `D` until yellow on `DOWN[1][0]` + `DOWN[1][2]` | cross |
+
+The algorithm does not touch the first two layers.
+
 ### Requirements
 - GCC
 - Make
@@ -71,6 +85,10 @@ Rubiks_Cube/
 ├── corner2.c       # 2nd white corner (UFL)
 ├── corner3.c       # 3rd white corner (UBR)
 ├── corner4.c       # 4th white corner (UBL)
+├── edge.c          # Middle edge search and checks
+├── edge2.c         # Relative moves and edge insertion
+├── edge3.c         # 4 middle edges placement
+├── cross.c         # Yellow cross
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -129,6 +147,20 @@ Chaque coin est résolu avec la même méthode en 3 étapes :
 
 L'algo ne touche que son emplacement et la couche du bas, donc la croix et les coins déjà placés restent résolus.
 
+#### 3. Arêtes du milieu (`edge.c` → `edge3.c`)
+`ft_place_edge1` → `ft_place_edge4` placent les 4 arêtes de la couronne du milieu (rouge-vert, rouge-bleu, orange-vert, orange-bleu). Une arête coincée dans un mauvais emplacement du milieu est d'abord éjectée vers le bas, puis on tourne `D` jusqu'à la placer sous le bon centre et on l'insère avec `D' R' D R D F D' F'` (vers la droite) ou `D L D' L' D' F' D F` (vers la gauche).
+
+#### 4. Croix jaune (`cross.c`)
+`ft_yellow_cross` oriente les 4 arêtes de DOWN pour que `DOWN[0][1]`, `DOWN[1][0]`, `DOWN[1][2]` et `DOWN[2][1]` soient jaunes (leur position par rapport aux centres n'est pas encore corrigée). Algo utilisé : `F L D L' D' F'`, version jaune en bas de `F R U R' U' F'` :
+
+| Cas | Préparation | Résultat |
+|---|---|---|
+| Point (0 arête jaune) | aucune | L |
+| L (2 voisines) | `D` jusqu'au jaune en `DOWN[1][2]` + `DOWN[2][1]` | ligne |
+| Ligne (2 opposées) | `D` jusqu'au jaune en `DOWN[1][0]` + `DOWN[1][2]` | croix |
+
+L'algo ne touche pas aux deux premières couronnes.
+
 ### Prérequis
 - GCC
 - Make
@@ -155,6 +187,10 @@ Rubiks_Cube/
 ├── corner2.c       # 2e coin blanc (UFL)
 ├── corner3.c       # 3e coin blanc (UBR)
 ├── corner4.c       # 4e coin blanc (UBL)
+├── edge.c          # Recherche et vérification des arêtes du milieu
+├── edge2.c         # Mouvements relatifs et insertion d'arête
+├── edge3.c         # Placement des 4 arêtes du milieu
+├── cross.c         # Croix jaune
 ├── solver.c        # Point d'entrée / orchestration du solveur
 ├── main.c          # Point d'entrée
 ├── Makefile
