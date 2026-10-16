@@ -70,6 +70,17 @@ The algorithm does not touch the first two layers.
 
 The first two layers and the yellow cross stay solved.
 
+#### 6. Yellow corners (`corner_y.c`)
+`ft_place_yellow_corners` puts each yellow corner in the slot matching its 3 colors (yellow + the two adjacent centers), orientation ignored. It uses `D' R' D L D' R D L'`, the yellow-down version of `U R U' L' U R' U' L`, a 3-cycle of corners that keeps the front-right corner in place:
+
+| Case | Action |
+|---|---|
+| 4 placed | done |
+| 1 placed | turn the reference so it is the front-right corner, apply → 4 placed (or repeat once) |
+| 0 placed | apply once → 1 placed case |
+
+The first two layers, the yellow cross and the yellow edges stay solved.
+
 ### Requirements
 - GCC
 - Make
@@ -101,6 +112,7 @@ Rubiks_Cube/
 ├── edge3.c         # 4 middle edges placement
 ├── cross.c         # Yellow cross
 ├── edge_y.c        # Yellow edges alignment
+├── corner_y.c      # Yellow corners placement
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -183,6 +195,17 @@ L'algo ne touche pas aux deux premières couronnes.
 | 2 alignées opposées | algo une fois, on réaligne `D` → cas voisin |
 
 Les deux premières couronnes et la croix jaune restent résolues.
+
+#### 6. Coins jaunes (`corner_y.c`)
+`ft_place_yellow_corners` place chaque coin jaune dans l'emplacement correspondant à ses 3 couleurs (jaune + les deux centres adjacents), sans tenir compte de l'orientation. On utilise `D' R' D L D' R D L'`, version jaune en bas de `U R U' L' U R' U' L`, un 3-cycle de coins qui laisse le coin avant-droite en place :
+
+| Cas | Action |
+|---|---|
+| 4 placés | fini |
+| 1 placé | on tourne la référence pour qu'il soit le coin avant-droite, algo → 4 placés (ou on répète une fois) |
+| 0 placé | algo une fois → cas 1 placé |
+
+Les deux premières couronnes, la croix jaune et les arêtes jaunes restent résolues.
 
 ### Prérequis
 - GCC

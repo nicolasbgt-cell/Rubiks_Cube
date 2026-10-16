@@ -18,7 +18,8 @@ SRC = main.c\
 	edge2.c\
 	edge3.c\
 	cross.c\
-	edge_y.c
+	edge_y.c\
+	corner_y.c
 
 OBJS = $(SRC:.c=.o)
 
