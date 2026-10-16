@@ -16,6 +16,10 @@ A Rubik's cube solver written in C. The program shuffles a cube, displays it in 
 - Random shuffle
 - Layer-by-layer solver
 - Step-by-step animation between each move
+- Interactive menu (Mix / Resolve / Benchmark / Quit)
+- Single cube redrawn in place (alternate screen, no scrollback)
+- Move counter
+- Benchmark of the displayed cube (moves per step, compute time)
 
 ### How the solver works
 The cube is solved with **white on the UP face**. Centers: FRONT = red, RIGHT = green, BACK = orange, LEFT = blue.
@@ -157,6 +161,10 @@ Un solveur de Rubik's cube écrit en C. Le programme mélange un cube, l'affiche
 - Mélange aléatoire
 - Résolution couche par couche
 - Animation étape par étape
+- Menu interactif (Mix / Resolve / Benchmark / Quit)
+- Un seul cube redessiné sur place (écran alternatif, sans historique)
+- Compteur de mouvements
+- Benchmark du cube affiché (mouvements par étape, temps de calcul)
 
 ### Fonctionnement du solveur
 Le cube est résolu avec **le blanc sur la face UP**. Centres : FRONT = rouge, RIGHT = vert, BACK = orange, LEFT = bleu.
@@ -261,6 +269,14 @@ Rubiks_Cube/
 ├── edge3.c         # Placement des 4 arêtes du milieu
 ├── cross.c         # Croix jaune
 ├── edge_y.c        # Alignement des arêtes jaunes
+├── corner_y.c      # Placement des coins jaunes
+├── corner_y2.c     # Orientation des coins jaunes
+├── render.c        # Rendu des frames + hook d'animation
+├── action.c        # Actions du menu (mix / resolve)
+├── menu.c          # Boucle du menu
+├── term.c          # Écran alternatif + SIGINT
+├── bench.c         # Outils du benchmark (test résolu, chrono, mesure)
+├── bench2.c        # Action benchmark et texte des résultats
 ├── solver.c        # Point d'entrée / orchestration du solveur
 ├── main.c          # Point d'entrée
 ├── Makefile
