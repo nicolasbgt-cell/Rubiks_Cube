@@ -27,4 +27,5 @@ void	ft_solver(t_cube *cube)
 	ft_yellow_cross(cube);
 	ft_place_yellow_edges(cube);
 	ft_place_yellow_corners(cube);
+	ft_orient_yellow_corners(cube);
 }

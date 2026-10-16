@@ -81,6 +81,9 @@ The first two layers and the yellow cross stay solved.
 
 The first two layers, the yellow cross and the yellow edges stay solved.
 
+#### 7. Yellow corners orientation (`corner_y2.c`)
+`ft_orient_yellow_corners` twists each yellow corner in place. With the corner on the front-right slot of DOWN, it repeats `R U R' U'` until the yellow sticker is on `DOWN`, then turns `D` to bring the next corner. The rest of the cube looks scrambled in between, which is expected. After 4 corners, `D` is turned until the layers are aligned: the cube is solved.
+
 ### Requirements
 - GCC
 - Make
@@ -113,6 +116,7 @@ Rubiks_Cube/
 ├── cross.c         # Yellow cross
 ├── edge_y.c        # Yellow edges alignment
 ├── corner_y.c      # Yellow corners placement
+├── corner_y2.c     # Yellow corners orientation
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -206,6 +210,9 @@ Les deux premières couronnes et la croix jaune restent résolues.
 | 0 placé | algo une fois → cas 1 placé |
 
 Les deux premières couronnes, la croix jaune et les arêtes jaunes restent résolues.
+
+#### 7. Orientation des coins jaunes (`corner_y2.c`)
+`ft_orient_yellow_corners` oriente chaque coin jaune sur place. Avec le coin sur l'emplacement avant-droite de DOWN, on répète `R U R' U'` jusqu'à ce que le jaune soit sur `DOWN`, puis on tourne `D` pour amener le coin suivant. Le reste du cube paraît mélangé entre-temps, c'est normal. Après les 4 coins, on tourne `D` jusqu'à aligner les couches : le cube est résolu.
 
 ### Prérequis
 - GCC

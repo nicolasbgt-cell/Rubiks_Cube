@@ -85,5 +85,6 @@ void	ft_yellow_cross(t_cube *cube);
 
 void	ft_place_yellow_edges(t_cube *cube);
 void	ft_place_yellow_corners(t_cube *cube);
+void	ft_orient_yellow_corners(t_cube *cube);
 
 #endif
