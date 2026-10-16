@@ -1,14 +1,11 @@
 #include "cube.h"
 #include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
 
 void	ft_shuffle(t_cube *cube)
 {
 	int	i;
 	int	move;
 
-	srand(time(NULL));
 	i = 0;
 	while (i < 20)
 	{
@@ -37,9 +34,6 @@ void	ft_shuffle(t_cube *cube)
 			ft_move_r(cube);
 		else if (move == 11)
 			ft_move_r_prime(cube);
-		system("clear");
-		ft_display(cube);
-		usleep(400000);
 		i++;
 	}
 }

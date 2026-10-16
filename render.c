@@ -4,19 +4,26 @@
 
 void	ft_putstr(char *str)
 {
-	while (*str)
-		write(1, str++, 1);
+	fputs(str, stdout);
 }
 
-void	ft_frame(t_cube *cube, char *msg)
+void	ft_frame(t_cube *cube, char *msg, int prompt)
 {
-	write(1, "\033[H\033[2J", 7);
-	ft_putstr("==== Welcome to Rubik's 2D ====\n\n");
+	ft_putstr("\033[H");
+	ft_putstr("==== Welcome to Rubik's 2D ====\033[K\n\033[K\n");
 	ft_display(cube);
-	fflush(stdout);
-	ft_putstr("\n1. Mix\n2. Resolve\n3. Benchmark\n4. Quit\n\n");
+	ft_putstr("\033[K\n1. Mix\033[K\n2. Resolve\033[K\n3. Quit\033[K\n");
+	ft_putstr("\033[K\n");
 	ft_putstr(msg);
-	ft_putstr("\n");
+	ft_putstr("\033[K\n");
+	if (prompt)
+		ft_putstr("Enter your choice: ");
+	ft_putstr("\033[J");
+	if (prompt)
+		ft_putstr("\033[?25h");
+	else
+		ft_putstr("\033[?25l");
+	fflush(stdout);
 }
 
 void	ft_after_move(t_cube *cube)
@@ -25,8 +32,8 @@ void	ft_after_move(t_cube *cube)
 	if (cube->animate == 0)
 		return ;
 	if (cube->animate == 1)
-		ft_frame(cube, "Mixing...");
+		ft_frame(cube, "Mixing...", 0);
 	else
-		ft_frame(cube, "Resolving...");
+		ft_frame(cube, "Resolving...", 0);
 	usleep(150000);
 }

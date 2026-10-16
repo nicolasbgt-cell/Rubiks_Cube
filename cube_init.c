@@ -23,5 +23,7 @@ t_cube	cube_init(void)
 		}
 		face++;
 	}
+	cube.animate = 0;
+	cube.moves = 0;
 	return (cube);
 }

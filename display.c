@@ -27,14 +27,14 @@ void	ft_display(t_cube *cube)
 	row = 0;
 	while (row < 3)
 	{
-		write(1, "         ", 9);
+		printf("         ");
 		col = 0;
 		while (col < 3)
 		{
 			ft_print_cell(cube->face[UP][row][col]);
 			col++;
 		}
-		printf("\n");
+		printf("\033[K\n");
 		row++;
 	}
 	row = 0;
@@ -64,20 +64,20 @@ void	ft_display(t_cube *cube)
 			ft_print_cell(cube->face[BACK][row][col]);
 			col++;
 			}
-		printf("\n");
+		printf("\033[K\n");
 		row++;
 	}
 	row = 0;
 	while (row < 3)
 	{
-		write(1, "         ", 9);
+		printf("         ");
 		col = 0;
 		while (col < 3)
 		{
 			ft_print_cell(cube->face[DOWN][row][col]);
 			col++;
 		}
-		printf("\n");
+		printf("\033[K\n");
 		row++;
 	}
 }

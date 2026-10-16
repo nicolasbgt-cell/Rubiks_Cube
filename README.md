@@ -84,6 +84,9 @@ The first two layers, the yellow cross and the yellow edges stay solved.
 #### 7. Yellow corners orientation (`corner_y2.c`)
 `ft_orient_yellow_corners` twists each yellow corner in place. With the corner on the front-right slot of DOWN, it repeats `R U R' U'` until the yellow sticker is on `DOWN`, then turns `D` to bring the next corner. The rest of the cube looks scrambled in between, which is expected. After 4 corners, `D` is turned until the layers are aligned: the cube is solved.
 
+### Interactive menu
+A single cube is drawn and redrawn in place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`): `1. Mix`, `2. Resolve`, `3. Quit`. Every `ft_move_*` increments `cube->moves` and, when `cube->animate` is set, redraws the frame after the move (`ft_after_move`), so Mix and Resolve are animated without touching the algorithms. After a resolve the message `Cube solved in X moves` is shown; invalid input shows `Invalid choice`.
+
 ### Requirements
 - GCC
 - Make
@@ -117,6 +120,9 @@ Rubiks_Cube/
 ├── edge_y.c        # Yellow edges alignment
 ├── corner_y.c      # Yellow corners placement
 ├── corner_y2.c     # Yellow corners orientation
+├── render.c        # Frame rendering + animation hook
+├── action.c        # Menu actions (mix / resolve)
+├── menu.c          # Menu loop
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -213,6 +219,9 @@ Les deux premières couronnes, la croix jaune et les arêtes jaunes restent rés
 
 #### 7. Orientation des coins jaunes (`corner_y2.c`)
 `ft_orient_yellow_corners` oriente chaque coin jaune sur place. Avec le coin sur l'emplacement avant-droite de DOWN, on répète `R U R' U'` jusqu'à ce que le jaune soit sur `DOWN`, puis on tourne `D` pour amener le coin suivant. Le reste du cube paraît mélangé entre-temps, c'est normal. Après les 4 coins, on tourne `D` jusqu'à aligner les couches : le cube est résolu.
+
+### Menu interactif
+Un seul cube est affiché et redessiné sur place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`) : `1. Mix`, `2. Resolve`, `3. Quit`. Chaque `ft_move_*` incrémente `cube->moves` et, si `cube->animate` est actif, redessine la frame après le mouvement (`ft_after_move`) : Mix et Resolve sont animés sans modifier les algos. Après une résolution, le message `Cube solved in X moves` s'affiche ; une entrée invalide affiche `Invalid choice`.
 
 ### Prérequis
 - GCC

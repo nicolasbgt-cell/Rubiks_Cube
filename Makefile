@@ -19,6 +19,10 @@ SRC = main.c\
 	edge3.c\
 	cross.c\
 	edge_y.c\
+	render.c\
+	action.c\
+	menu.c\
+	term.c\
 	corner_y.c\
 	corner_y2.c
 

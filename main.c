@@ -1,16 +1,17 @@
 #include "cube.h"
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int	main(void)
 {
-	t_cube cube;
+	t_cube	cube;
 
+	setvbuf(stdout, NULL, _IOFBF, 16384);
+	srand(time(NULL));
 	cube = cube_init();
-	ft_display(&cube);
-	usleep(1000000);
-	ft_shuffle(&cube);
-	ft_solver(&cube);
-	ft_display(&cube);
+	ft_term_enter();
+	ft_menu(&cube);
+	ft_term_leave();
 	return (0);
 }

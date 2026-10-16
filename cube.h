@@ -8,6 +8,11 @@
 #define BLUE 4
 #define GREEN 5
 
+#define MSG_SIZE 64
+#define MENU_MIX 1
+#define MENU_RESOLVE 2
+#define MENU_QUIT 3
+
 #define UP 0
 #define DOWN 1
 #define FRONT 2
@@ -18,6 +23,8 @@
 typedef struct	s_cube
 {
 	int face[6][3][3];
+	int animate;
+	int moves;
 }				t_cube;
 
 t_cube	cube_init(void);
@@ -86,5 +93,13 @@ void	ft_yellow_cross(t_cube *cube);
 void	ft_place_yellow_edges(t_cube *cube);
 void	ft_place_yellow_corners(t_cube *cube);
 void	ft_orient_yellow_corners(t_cube *cube);
+
+void	ft_putstr(char *str);
+void	ft_frame(t_cube *cube, char *msg, int prompt);
+void	ft_term_enter(void);
+void	ft_term_leave(void);
+void	ft_after_move(t_cube *cube);
+char	*ft_action(t_cube *cube, int choice, char *buf);
+void	ft_menu(t_cube *cube);
 
 #endif
