@@ -1,46 +1,45 @@
 #include "cube.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
-void	ft_bench_msg(char *buf, t_bench *b, int n)
+void	ft_bench_text(char *buf, int *steps, double ms, double sec)
 {
 	int	len;
 
-	len = snprintf(buf, MSG_SIZE, "Benchmark terminé : %d/%d résolus",
-			b->ok, n);
-	if (b->ok < n)
-		len += snprintf(buf + len, MSG_SIZE - len, " (%d échecs)",
-				n - b->ok);
+	len = snprintf(buf, MSG_SIZE, "Total: %d moves\n",
+			steps[0] + steps[1] + steps[2] + steps[3] + steps[4]
+			+ steps[5] + steps[6]);
 	len += snprintf(buf + len, MSG_SIZE - len,
-			"\nMouvements : min %d / max %d / moyenne %.1f",
-			b->min, b->max, (double)b->sum / n);
+			"White cross: %d | White corners: %d | Middle edges: %d\n",
+			steps[0], steps[1], steps[2]);
+	len += snprintf(buf + len, MSG_SIZE - len,
+			"Yellow cross: %d | Yellow edges: %d\n", steps[3], steps[4]);
+	len += snprintf(buf + len, MSG_SIZE - len,
+			"Yellow corners: place %d | orient %d\n", steps[5], steps[6]);
+	len += snprintf(buf + len, MSG_SIZE - len,
+			"Compute time: %.3f ms\n", ms);
 	snprintf(buf + len, MSG_SIZE - len,
-		"\nTemps : %.3f ms / résolution, total %.2f s",
-		b->solve * 1000 / n, b->total);
+		"Total time with animation: %.1f s", sec);
 }
 
-void	ft_bench(t_cube *cube, char *buf)
+char	*ft_bench(t_cube *cube, char *buf)
 {
-	t_bench	b;
+	t_cube	copy;
+	int		steps[STEPS];
+	int		total;
+	double	ms;
 	double	start;
-	int		i;
 
-	ft_bench_init(&b);
-	srand(time(NULL));
-	cube->animate = 0;
+	if (ft_solved(cube))
+		return ("Cube already solved, Mix first");
+	copy = *cube;
+	total = ft_measure(&copy, steps, &ms);
+	cube->moves = 0;
+	cube->animate = 2;
 	start = ft_now();
-	i = 0;
-	while (i < BENCH_N)
-	{
-		ft_bench_one(cube, &b);
-		i++;
-		if (i % 10 == 0)
-		{
-			snprintf(buf, MSG_SIZE, "Benchmark %d/%d...", i, BENCH_N);
-			ft_frame(cube, buf);
-		}
-	}
-	b.total = ft_now() - start;
-	ft_bench_msg(buf, &b, BENCH_N);
+	ft_solver(cube);
+	cube->animate = 0;
+	if (cube->moves != total)
+		return ("Error: benchmark mismatch");
+	ft_bench_text(buf, steps, ms, ft_now() - start);
+	return (buf);
 }

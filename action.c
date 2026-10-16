@@ -25,5 +25,7 @@ char	*ft_action(t_cube *cube, int choice, char *buf)
 		return (ft_mix(cube));
 	if (choice == MENU_RESOLVE)
 		return (ft_resolve(cube, buf));
+	if (choice == MENU_BENCH)
+		return (ft_bench(cube, buf));
 	return ("Invalid choice");
 }

@@ -85,7 +85,9 @@ The first two layers, the yellow cross and the yellow edges stay solved.
 `ft_orient_yellow_corners` twists each yellow corner in place. With the corner on the front-right slot of DOWN, it repeats `R U R' U'` until the yellow sticker is on `DOWN`, then turns `D` to bring the next corner. The rest of the cube looks scrambled in between, which is expected. After 4 corners, `D` is turned until the layers are aligned: the cube is solved.
 
 ### Interactive menu
-A single cube is drawn and redrawn in place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`): `1. Mix`, `2. Resolve`, `3. Quit`. Every `ft_move_*` increments `cube->moves` and, when `cube->animate` is set, redraws the frame after the move (`ft_after_move`), so Mix and Resolve are animated without touching the algorithms. After a resolve the message `Cube solved in X moves` is shown; invalid input shows `Invalid choice`.
+A single cube is drawn and redrawn in place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`): `1. Mix`, `2. Resolve`, `3. Benchmark`, `4. Quit`. Every `ft_move_*` increments `cube->moves` and, when `cube->animate` is set, redraws the frame after the move (`ft_after_move`), so Mix and Resolve are animated without touching the algorithms. After a resolve the message `Cube solved in X moves` is shown; invalid input shows `Invalid choice`.
+
+**Benchmark** (`bench.c`, `bench2.c`): benchmarks the cube currently displayed. A copy of the cube is solved silently to get the move count per step (white cross, white corners, middle edges, yellow cross, yellow edges, yellow corners placement, yellow corners orientation) and the pure compute time (`clock_gettime`). The real cube is then solved with animation and timed. Results (total, per step, compute ms, total seconds) stay in the message area. If the cube is already solved, it shows `Cube already solved, Mix first`.
 
 ### Requirements
 - GCC
@@ -123,6 +125,9 @@ Rubiks_Cube/
 ├── render.c        # Frame rendering + animation hook
 ├── action.c        # Menu actions (mix / resolve)
 ├── menu.c          # Menu loop
+├── term.c          # Alternate screen + SIGINT
+├── bench.c         # Benchmark helpers (solved check, timer, measure)
+├── bench2.c        # Benchmark action and results text
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -221,7 +226,9 @@ Les deux premières couronnes, la croix jaune et les arêtes jaunes restent rés
 `ft_orient_yellow_corners` oriente chaque coin jaune sur place. Avec le coin sur l'emplacement avant-droite de DOWN, on répète `R U R' U'` jusqu'à ce que le jaune soit sur `DOWN`, puis on tourne `D` pour amener le coin suivant. Le reste du cube paraît mélangé entre-temps, c'est normal. Après les 4 coins, on tourne `D` jusqu'à aligner les couches : le cube est résolu.
 
 ### Menu interactif
-Un seul cube est affiché et redessiné sur place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`) : `1. Mix`, `2. Resolve`, `3. Quit`. Chaque `ft_move_*` incrémente `cube->moves` et, si `cube->animate` est actif, redessine la frame après le mouvement (`ft_after_move`) : Mix et Resolve sont animés sans modifier les algos. Après une résolution, le message `Cube solved in X moves` s'affiche ; une entrée invalide affiche `Invalid choice`.
+Un seul cube est affiché et redessiné sur place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`) : `1. Mix`, `2. Resolve`, `3. Benchmark`, `4. Quit`. Chaque `ft_move_*` incrémente `cube->moves` et, si `cube->animate` est actif, redessine la frame après le mouvement (`ft_after_move`) : Mix et Resolve sont animés sans modifier les algos. Après une résolution, le message `Cube solved in X moves` s'affiche ; une entrée invalide affiche `Invalid choice`.
+
+**Benchmark** (`bench.c`, `bench2.c`) : mesure le cube affiché à l'écran. Une copie du cube est résolue en silence pour obtenir le nombre de mouvements par étape (croix blanche, coins blancs, arêtes du milieu, croix jaune, arêtes jaunes, placement des coins jaunes, orientation des coins jaunes) et le temps de calcul pur (`clock_gettime`). Le vrai cube est ensuite résolu en animation et chronométré. Les résultats (total, détail par étape, ms de calcul, secondes totales) restent dans la zone de message. Si le cube est déjà résolu, `Cube already solved, Mix first` s'affiche.
 
 ### Prérequis
 - GCC

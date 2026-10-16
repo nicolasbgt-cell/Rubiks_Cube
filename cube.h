@@ -8,10 +8,12 @@
 #define BLUE 4
 #define GREEN 5
 
-#define MSG_SIZE 64
+#define MSG_SIZE 512
+#define STEPS 7
 #define MENU_MIX 1
 #define MENU_RESOLVE 2
-#define MENU_QUIT 3
+#define MENU_BENCH 3
+#define MENU_QUIT 4
 
 #define UP 0
 #define DOWN 1
@@ -50,6 +52,12 @@ void	ft_shuffle(t_cube *cube);
 
 int	ft_white_cross(t_cube *cube);
 void	ft_solver(t_cube *cube);
+void	ft_solver_step(t_cube *cube, int step);
+int	ft_solved(t_cube *cube);
+double	ft_now(void);
+int	ft_measure(t_cube *copy, int *steps, double *ms);
+void	ft_bench_text(char *buf, int *steps, double ms, double sec);
+char	*ft_bench(t_cube *cube, char *buf);
 
 void	ft_solve_white_cross(t_cube *cube);
 void	ft_align_down(t_cube *cube);

@@ -23,6 +23,8 @@ SRC = main.c\
 	action.c\
 	menu.c\
 	term.c\
+	bench.c\
+	bench2.c\
 	corner_y.c\
 	corner_y2.c
 

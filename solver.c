@@ -12,20 +12,43 @@ int     ft_white_cross(t_cube *cube)
     return (0);
 }
 
+void	ft_solver_step(t_cube *cube, int step)
+{
+	if (step == 0)
+		while (!ft_white_cross(cube))
+			ft_solve_white_cross(cube);
+	else if (step == 1)
+	{
+		ft_place_corner(cube);
+		ft_place_corner2(cube);
+		ft_place_corner3(cube);
+		ft_place_corner4(cube);
+	}
+	else if (step == 2)
+	{
+		ft_place_edge1(cube);
+		ft_place_edge2(cube);
+		ft_place_edge3(cube);
+		ft_place_edge4(cube);
+	}
+	else if (step == 3)
+		ft_yellow_cross(cube);
+	else if (step == 4)
+		ft_place_yellow_edges(cube);
+	else if (step == 5)
+		ft_place_yellow_corners(cube);
+	else
+		ft_orient_yellow_corners(cube);
+}
+
 void	ft_solver(t_cube *cube)
 {
-	while (!ft_white_cross(cube))
-		ft_solve_white_cross(cube);
-	ft_place_corner(cube);
-	ft_place_corner2(cube);
-	ft_place_corner3(cube);
-	ft_place_corner4(cube);
-	ft_place_edge1(cube);
-	ft_place_edge2(cube);
-	ft_place_edge3(cube);
-	ft_place_edge4(cube);
-	ft_yellow_cross(cube);
-	ft_place_yellow_edges(cube);
-	ft_place_yellow_corners(cube);
-	ft_orient_yellow_corners(cube);
+	int	step;
+
+	step = 0;
+	while (step < STEPS)
+	{
+		ft_solver_step(cube, step);
+		step++;
+	}
 }

@@ -7,14 +7,24 @@ void	ft_putstr(char *str)
 	fputs(str, stdout);
 }
 
+static void	ft_putmsg(char *msg)
+{
+	while (*msg)
+	{
+		if (*msg == '\n')
+			ft_putstr("\033[K");
+		putc(*msg++, stdout);
+	}
+}
+
 void	ft_frame(t_cube *cube, char *msg, int prompt)
 {
 	ft_putstr("\033[H");
 	ft_putstr("==== Welcome to Rubik's 2D ====\033[K\n\033[K\n");
 	ft_display(cube);
-	ft_putstr("\033[K\n1. Mix\033[K\n2. Resolve\033[K\n3. Quit\033[K\n");
+	ft_putstr("\033[K\n1. Mix\033[K\n2. Resolve\033[K\n3. Benchmark\033[K\n4. Quit\033[K\n");
 	ft_putstr("\033[K\n");
-	ft_putstr(msg);
+	ft_putmsg(msg);
 	ft_putstr("\033[K\n");
 	if (prompt)
 		ft_putstr("Enter your choice: ");
