@@ -59,6 +59,17 @@ The algorithm only touches its own slot and the bottom layer, so the cross and t
 
 The algorithm does not touch the first two layers.
 
+#### 5. Yellow edges (`edge_y.c`)
+`ft_place_yellow_edges` aligns the second color of each yellow edge with its center (`DOWN[0][1]` with FRONT, `DOWN[1][2]` with RIGHT, `DOWN[2][1]` with BACK, `DOWN[1][0]` with LEFT). It first turns `D` to the position that aligns the most edges (2 or 4, never 1 or 3), then uses `L D L' D L D2 L' D`, the yellow-down version of `R U R' U R U2 R' U`, which swaps the front and right edges of DOWN:
+
+| Case | Action |
+|---|---|
+| 4 aligned | done |
+| 2 adjacent aligned | apply on the two misaligned edges → 4 aligned |
+| 2 opposite aligned | apply once, realign `D` → adjacent case |
+
+The first two layers and the yellow cross stay solved.
+
 ### Requirements
 - GCC
 - Make
@@ -89,6 +100,7 @@ Rubiks_Cube/
 ├── edge2.c         # Relative moves and edge insertion
 ├── edge3.c         # 4 middle edges placement
 ├── cross.c         # Yellow cross
+├── edge_y.c        # Yellow edges alignment
 ├── solver.c        # Solver entry point / orchestration
 ├── main.c          # Entry point
 ├── Makefile
@@ -161,6 +173,17 @@ L'algo ne touche que son emplacement et la couche du bas, donc la croix et les c
 
 L'algo ne touche pas aux deux premières couronnes.
 
+#### 5. Arêtes jaunes (`edge_y.c`)
+`ft_place_yellow_edges` aligne la deuxième couleur de chaque arête jaune avec son centre (`DOWN[0][1]` avec FRONT, `DOWN[1][2]` avec RIGHT, `DOWN[2][1]` avec BACK, `DOWN[1][0]` avec LEFT). On tourne d'abord `D` jusqu'à la position qui aligne le plus d'arêtes (2 ou 4, jamais 1 ou 3), puis on utilise `L D L' D L D2 L' D`, version jaune en bas de `R U R' U R U2 R' U`, qui échange les arêtes avant et droite de DOWN :
+
+| Cas | Action |
+|---|---|
+| 4 alignées | fini |
+| 2 alignées voisines | algo sur les deux arêtes mal placées → 4 alignées |
+| 2 alignées opposées | algo une fois, on réaligne `D` → cas voisin |
+
+Les deux premières couronnes et la croix jaune restent résolues.
+
 ### Prérequis
 - GCC
 - Make
@@ -191,6 +214,7 @@ Rubiks_Cube/
 ├── edge2.c         # Mouvements relatifs et insertion d'arête
 ├── edge3.c         # Placement des 4 arêtes du milieu
 ├── cross.c         # Croix jaune
+├── edge_y.c        # Alignement des arêtes jaunes
 ├── solver.c        # Point d'entrée / orchestration du solveur
 ├── main.c          # Point d'entrée
 ├── Makefile

@@ -83,4 +83,6 @@ void	ft_place_edge4(t_cube *cube);
 int	ft_yellow_count(t_cube *cube);
 void	ft_yellow_cross(t_cube *cube);
 
+void	ft_place_yellow_edges(t_cube *cube);
+
 #endif
