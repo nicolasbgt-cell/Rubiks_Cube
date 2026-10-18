@@ -8,6 +8,43 @@
 
 ## English
 
+### Requirements
+- GCC (or any C compiler, set with `make CC=cc`)
+- Make
+- A terminal supporting ANSI colors and the alternate screen (macOS Terminal, iTerm2, most Linux terminals)
+
+Install the tools if needed:
+```
+# macOS
+xcode-select --install
+
+# Debian / Ubuntu
+sudo apt install build-essential
+```
+
+### Installation
+```
+git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
+cd Rubiks_Cube
+make
+```
+This builds the `rubiks` executable. Other targets: `make clean` (remove object files), `make fclean` (remove the executable), `make re` (rebuild from scratch).
+
+### Usage
+```
+./rubiks
+```
+The cube is displayed with a menu. Type the number of your choice and press Enter:
+
+| Choice | Action |
+|---|---|
+| `1` | Mix: shuffle the cube (animated) |
+| `2` | Resolve: solve the cube step by step (animated) |
+| `3` | Benchmark: moves per step and compute time for the displayed cube |
+| `4` | Quit |
+
+Typical session: `1` (Mix), then `2` (Resolve). `Ctrl+C` also quits and restores the terminal.
+
 ### Description
 A Rubik's cube solver written in C. The program shuffles a cube, displays it in the terminal, and animates the solution step-by-step.
 
@@ -93,18 +130,6 @@ A single cube is drawn and redrawn in place (`render.c`, `ft_frame`). Menu (`men
 
 **Benchmark** (`bench.c`, `bench2.c`): benchmarks the cube currently displayed. A copy of the cube is solved silently to get the move count per step (white cross, white corners, middle edges, yellow cross, yellow edges, yellow corners placement, yellow corners orientation) and the pure compute time (`clock_gettime`). The real cube is then solved with animation and timed. Results (total, per step, compute ms, total seconds) stay in the message area. If the cube is already solved, it shows `Cube already solved, Mix first`.
 
-### Requirements
-- GCC
-- Make
-
-### Installation
-```
-git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
-cd Rubiks_Cube
-make
-./rubiks
-```
-
 ### Project Structure
 ```
 Rubiks_Cube/
@@ -147,6 +172,43 @@ https://ko-fi.com/nicolasbgt
 ---
 
 ## Français
+
+### Prérequis
+- GCC (ou un autre compilateur C, via `make CC=cc`)
+- Make
+- Un terminal gérant les couleurs ANSI et l'écran alternatif (Terminal macOS, iTerm2, la plupart des terminaux Linux)
+
+Installer les outils si besoin :
+```
+# macOS
+xcode-select --install
+
+# Debian / Ubuntu
+sudo apt install build-essential
+```
+
+### Installation
+```
+git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
+cd Rubiks_Cube
+make
+```
+Cela compile l'exécutable `rubiks`. Autres règles : `make clean` (supprime les fichiers objets), `make fclean` (supprime l'exécutable), `make re` (recompile tout).
+
+### Utilisation
+```
+./rubiks
+```
+Le cube s'affiche avec un menu. Tapez le numéro de votre choix puis Entrée :
+
+| Choix | Action |
+|---|---|
+| `1` | Mix : mélange le cube (animé) |
+| `2` | Resolve : résout le cube étape par étape (animé) |
+| `3` | Benchmark : mouvements par étape et temps de calcul du cube affiché |
+| `4` | Quitter |
+
+Session type : `1` (Mix), puis `2` (Resolve). `Ctrl+C` quitte aussi et restaure le terminal.
 
 ### Preview
 <div align="center">
@@ -237,18 +299,6 @@ Les deux premières couronnes, la croix jaune et les arêtes jaunes restent rés
 Un seul cube est affiché et redessiné sur place (`render.c`, `ft_frame`). Menu (`menu.c`, `action.c`) : `1. Mix`, `2. Resolve`, `3. Benchmark`, `4. Quit`. Chaque `ft_move_*` incrémente `cube->moves` et, si `cube->animate` est actif, redessine la frame après le mouvement (`ft_after_move`) : Mix et Resolve sont animés sans modifier les algos. Après une résolution, le message `Cube solved in X moves` s'affiche ; une entrée invalide affiche `Invalid choice`.
 
 **Benchmark** (`bench.c`, `bench2.c`) : mesure le cube affiché à l'écran. Une copie du cube est résolue en silence pour obtenir le nombre de mouvements par étape (croix blanche, coins blancs, arêtes du milieu, croix jaune, arêtes jaunes, placement des coins jaunes, orientation des coins jaunes) et le temps de calcul pur (`clock_gettime`). Le vrai cube est ensuite résolu en animation et chronométré. Les résultats (total, détail par étape, ms de calcul, secondes totales) restent dans la zone de message. Si le cube est déjà résolu, `Cube already solved, Mix first` s'affiche.
-
-### Prérequis
-- GCC
-- Make
-
-### Installation
-```
-git clone https://github.com/nicolasbgt-cell/Rubiks_Cube.git
-cd Rubiks_Cube
-make
-./rubiks
-```
 
 ### Structure du projet
 ```
