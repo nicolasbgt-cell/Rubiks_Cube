@@ -166,6 +166,8 @@ Rubiks_Cube/
 ### Author
 Nicolas Bigot — École 42 Paris
 
+Claude Code was used as a tool to help debug the white cross (`strategy.c`) and to run the benchmark tests on 1000 cubes.
+
 ### Support
 https://ko-fi.com/nicolasbgt
 
@@ -335,6 +337,8 @@ Rubiks_Cube/
 
 ### Auteur
 Nicolas Bigot — École 42 Paris
+
+Claude Code a été utilisé comme outil pour aider à débugger la croix blanche (`strategy.c`) et pour réaliser les tests de benchmark sur 1000 cubes.
 
 ### Soutenir le projet
 https://ko-fi.com/nicolasbgt
